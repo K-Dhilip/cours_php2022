@@ -14,18 +14,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
 
-    <title>Cours_php2022 - Introduction</title>
+    <title>Cours_php2022 - Variables</title>
     <!-- Mes styles -->
     <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
 <body>
+    <div class="row">
     <div class="jumbotron bg-secondary text-center">
         <h1 class="display-3 pt-3">Cours_php2022</h1>
         <p class="lead pb-3">PHP signifie aujourd'hui Hypertext Preprocessor</p>
     </div>
-
+    </div>
     <div class="row">
 
         <?php
@@ -35,7 +36,7 @@
         <!-- ========================================================= -->
         <!-- Contenu principal -->
         <!-- ========================================================= -->
-        <div class="col-sm-8">
+        <div class="col-sm-8 col-md-9 col-lg-9">
             <main class="container-fluid">
                 <div class="row">
                     <hr>
@@ -47,9 +48,9 @@
                             <li>Les caractères suivants peuvent être les mêmes plus des chiffres.</li>
                             <li>Les fonctions n'ont pas les mêmes attentes , par exemple : <code> __FILE__
                                 </code>, qui permet d'afficher le chemin complet :
-                                <?php
+                                <p><?php
                                 echo "Nom du fichier inclus:" . __FILE__;
-                                ?>
+                                ?></p>
                             </li>
                             <li>La longueur du nom n'est pas limité mais il convient d'être raisonnable sous peine de confusion dans la saisie du code . Il est conseillé de créer des noms de variable le plus "parlant" possible .en réalisant le code contenant la variable <code>$nomClient</code>, par exemple, vous comprenez davantage ce que vous manipulez que si vous aviez écrit <code>$x</code> ou <code>$y</code>.</li>
                         </ul>
@@ -76,32 +77,31 @@
                             <li>$5_mavar</li>
                             <li>$mavar2+</li>
                         </ul>
-
-
                     </div>
-
-                </div>
-                <div class="row">
-                    <h2 class="text-center col-sm-12" id="affectation">2 - Affectation de variables</h2>
-                    <div class="col-sm-12">
-                        <p>L'affectation consister à donner une valeur à une variable. Lors de la création d'une variabke, vous ne déclarez pas son type. C'est la valuer que vous lui affectez qui détermine ce type. Dans PHP, vous pouvez affecter une variable par valeur ou pas référence. </p>
-                        <ul>
-                            <li>$mavar=75;</li>
-                            <li>$mavar="Paris";</li>
-                            <li>$mavar=7*3+2/5-91%7; //PHP évalue l'expression puis affecte le résultat </li>
-                            <li>$mavar=mysql_connect($a,$b,$c); //la fonction retourne une ressource </li>
-                            <li>$mavar=isset($var&&($var==9)); //la fonction retourne une valeur booléenne</li>
-                        </ul>
-                    </div><!-- fin de la colonne -->
-                </div><!-- fin de la rangée -->
+                </div><!-- fin de la rangée --->
 
                 <hr>
 
+                <div class="row">
+                    <h2 class="col-sm-12 text-center" id="affectation"><u>2- Affectation de variables</u></h2>
+                    <div class="col-sm-12">
+                        <p>L'affectation consiste à donner une valeur à une variable. Lors de la création de variable, vous ne déclarez pas son type .C'est la valeur que vous lui affectez qui détermine ce type . Dans PHP, vous pouvez affecter une variable par valeur ou par référence. </p>
+                        <ul>
+                            <li>$mavar=75;</li>
+                            <li>$mavar="Paris";</li>
+                            <li>$mavar=7*3+2/5-91%7; // PHP évalue l'expression puis affecte le résultat</li>
+                            <li>$mavar=mysql_connect($a,$b,$c); // la fonction retourne une ressource</li>
+                            <li>$mavar=isset($var&&($var==9)); // la fonction retourne une valeur booléenne</li>
+                        </ul>
+                    </div><!--fin de la colonne -->
+                </div><!-- fin de la rangée (row)-->
+
+                <hr>
 
                 <div class="row">
-                    <h2 class="text-center col-sm-12" id="variablesPredefinies">3 - Les variables prédéfinies</h2>
+                    <h2 class="text-center col-sm-12" id="variablesPredefinies"><u>3- Les variables prédéfinies</u></h2>
                     <div class="col-sm-12">
-                        <p>Le PHP dispose d'un grand nombre de variables prédéfinies qui contiennent des informations à la fois sur le serveur et sur toutes les données qui peuvent transiter entre le poste client et le serveur, comme les valeurs saisies dans un formulaire, les cookies ou les sessions. </p>
+                        <p>Le PHP dispose d'un grand nombre de variables prédéfinies qui contiennent des informations à la fois sur le serveur et sur toutes les données qui peuvent transiter entre le poste client et le serveur , comme les valeurs saisies dans un formulaire , les cookies ou les sessions .</p>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -112,63 +112,59 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">$GLOBALS</th>
-                                    <td>Contient le nom et la valeur de toutes les variables globales du script. Les noms des variables sont les clés de ce tableau. <code>$GLOBALS["mavar"]</code> récupère la valeur de la variable $mavar en dehors de sa zone de visibilité (dans les fonctions par exemple).</td>
+                                    <td>Contient le nom et la valeur de toutes les variables globales du script . Les noms des variables sont les clés de ce tableau .<code>$GLOBALS["mavar"]</code> récupère la valeur de la variable $mavar en dehors de sa zone de visibilité (dans les fonctions par exemple)</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">$_COOKIE</th>
-                                    <td>Contient le nom et la valeur des cookies enregistrés sur le poste client. Les noms des cookies sont les clés de ce tableau.</td>
+                                    <td>Contient le nom et la valeur des cookies enregistrés sur le poste client. Les noms des cookies sont les clés de ce tableau .</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">$_ENV</th>
-                                    <td>Contient le nom et la valeur des variables d'environnement qui sont changeantes selon les serveurs. </td>
+                                    <td>Contient le nom et la valeur des variables d'environnements qui sont changeantes selon les serveurs</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">$_FILES</th>
-                                    <td>Contient le nom des fichiers téléchargés à partir du poste client. </td>
+                                    <td>Contient le nom des fichiers téléchargés à partir du poste client</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">$_GET</th>
-                                    <td>Contient le nom et la valeur des données issues d'un formulaire envoyé par la méthode GET. Les noms des champs du formulaire sont les clés de ce tableau.</td>
+                                    <td>Contient le nom et la valeur des données issues d'un formulaire envoyé par la méthode GET . Les noms des champs du formulaire sont les clés dans ce tableau. </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">$_POST</th>
-                                    <td>Contient le nom et la valeur des données issues d'un formulaire envoyé par la méthode POST. Les noms des champs du formulaire sont les clés de ce tableau.</td>
+                                    <td>Contient le nom et la valeur des données issues d'un formulaire envoyé par la méthode POST . Les noms des champs du formulaire sont les clés dans ce tableau. </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">$_REQUEST</th>
-                                    <td>Contient l'ensemble des variables superglobales : $_GET, $_POST, $_COOKIE et $_FLIES</td>
+                                    <td>Contient l'ensemble des variables superglobales : $_GET, $_POST, $_COOKIE et $_FILES </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">$_SERVER</th>
-                                    <td>Contient les informations liées au serveur web, tel le contenu des en-têtes HTTP ou le nom du script en cours d'exécution. Retenons les variables suivantes :
-                                        <ul>
-                                            <li><code>$_SERVER["HTTP_ACCEPT_LANGUAGE"]</code>, qui contient le code de langue du
-                                                navigateur client.</li>
-                                            <li><code>$_SERVER["HTTP_COOKIE"]</code>, qui contient le nom et la valeur des cookies lus sur
-                                                le poste client.</li>
-                                            <li><code>$_SERVER["HTTP_HOST"]</code>, qui donne le nom de domaine.</li>
-                                            <li><code>$_SERVER["SERVER_ADDR"]</code>, qui indique l'adresse IP du serveur.</li>
-                                            <li><code>$_SERVER["PHP_SELF"]</code>, qui contient le nom du script en cours. Nous l'utiliserons souvent dans les formulaires.</li>
-                                            <li><code>$_SERVER["QUERY_STRING"]</code>, qui contient la chaîne de la requête utilisée pour accéder au script.</li>
-                                        </ul>
-                                    </td>
+                                    <td>Contient les informations liées au serveur web, tel le contenu des en-têtes HTTP ou le nom du script en cours d'execution. retenons les variables suivantes :
+                                     <ul>
+                                         <li><code>$_SERVER["HTTP_ACCESS_LANGUAGE"]</code>, qui contient le code de langue du navigateur client</li>
+                                         <li><code>$_SERVER["HTTP_COOKIE"]</code>, qui contient le nom et la valeur des cookies lus sur le poste client</li>
+                                         <li><code>$_SERVER["HTTP_HOST"]</code>, qui donne le nom de domaine</li>
+                                         <li><code>$_SERVER["PHP_SELF"]</code>, qui contient le nom du script en cours. Nous l'utiliserons souvent dans les formulaires</li>
+                                         <li><code>$_SERVER["SERVER_ADDR"]</code>, qui indique l'adresse IP du serveur.</li>
+                                         <li><code>$_SERVER["QUERY_STRING"]</code>, qui contient la chaîne de la requête utilisée pour accéder au script</li>
+                                     </ul></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">$_SESSION</th>
-                                    <td>Contient l'ensemble des nom des variables de session et leurs valeurs. </td>
+                                    <td>Contient l'ensemble des noms des variables de session et leurs valeurs.</td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div> <!-- fin de la colonne -->
-
-                    <hr>
-
-
+                    </div><!-- fin de la colonne -->
                 </div>
+
+                <hr>
+
                 <div class="row">
                     <div class="col-sm-12 px-4">
-                        <h2 class="text-center">4 - Les opérateurs d'affectation combinés</h2>
-                        <p>En plus de l'opérateur classique d'affectation =, il existe pluesieurs opérateur d'affectation combinés. Ces opérateur réalient à la fois une opération entre deux opérandess et l'affectation du résultat à l'opérande de gauche. </p>
+                        <h2 class="text-center"><u>4-Les opérateurs d'affectation combinés</u></h2>
+                        <p>En plus de l'opérateur classique d'affectation =, il existe plusieurs opérateurs d'affectation combinés. Ces opérateurs réalisent à la fois une opération entre deux opérandes et l'afféctation du résultat à l'opérande de gauche </p>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -180,52 +176,114 @@
                                 <tr>
                                     <th scope="row">+=</th>
                                     <td>Addition puis affectation :<br>
-                                        $x += $y équivaut à $x = $x + $y<br>
-                                        $y peut être une expression complexe dont la valeur est un nombre.</td>
+                                    $x += $y équivaut à $x = $x + $y<br>
+                                    $y peut être une expression complexe dont la valeur est un nombre.</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">-=</th>
                                     <td>Soustraction puis affectation :<br>
-                                        $x -= $y équivaut à $x = $x - $y<br>
-                                        $y peut être une expression complexe dont la valeur est un nombre.</td>
+                                    $x -= $y équivaut à $x = $x - $y<br>
+                                    $y peut être une expression complexe dont la valeur est un nombre.</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">*=</th>
                                     <td>Multiplication puis affectation :<br>
-                                        $x *= $y équivaut à $x = $x * $y<br>
-                                        $y peut être une expression complexe dont la valeur est un nombre.</td>
+                                    $x *= $y équivaut à $x = $x * $y<br>
+                                    $y peut être une expression complexe dont la valeur est un nombre.</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">**=</th>
-                                    <td>Puissance puis affectation<br>
-                                        $x**=2 équivaut à $x=($x)²</td>
+                                    <td>Puissance puis affectation :<br>
+                                    $x**=2 équivaut à $x=($x)²</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">/=</th>
                                     <td>Division puis affectation :<br>
-                                        $x /= $y équivaut à $x = $x / $y<br>
-                                        $y peut être une expression complexe dont la valeur est un nombre différent de 0.</td>
+                                    $x /= $y équivaut à $x = $x / $y<br>
+                                    $y peut être une expression complexe dont la valeur est un nombre différent de 0.</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">%=</th>
                                     <td>Modulo puis affectation :<br>
-                                        $x %= $y équivaut à $x = $x % $y $y<br>
-                                        $y peut être une expression complexe dont la valeur est un nombre.</td>
+                                    $x %= $y équivaut à $x = $x % $y $y<br>
+                                    $y peut être une expression complexe dont la valeur est un nombre.</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">.=</th>
                                     <td>Concaténation puis affectation :<br>
-                                        $x .= $y équivaut à $x = $x . $y<br>
-                                        $y peut être une expression littérale dont la valeur est une chaîne de caractères.</td>
+                                    $x .= $y équivaut à $x = $x . $y<br>
+                                    $y peut être une expression littérale dont la valeur est une chaîne de caractère.</td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div> <!-- fin de la colonne -->
-                </div> <!-- fin de la rangée -->
+                    </div><!-- fin de la colonne -->
+                </div><!-- fin de la rangée (row) -->
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-sm-12 px-4">
+                        <h2 class="text-center"><u>5- Les constantes</u></h2>
+                        <p>Vous serez parfois amenés à utiliser de manière répétitive des informations devant rester constantes dans toutes les pages d'un même site. Il peut s'agir de texte ou de nombres qui reviennent souvent. Pour ne pas risquer l'écrasement accidentel de ces valeurs , qui pourrait produire si elles étaient contenues dans des variables, vous avez tout intérêt à les enregistrer sous forme de constantes personnalisées.</p>
+                        <p>On peut définir ses constantes soi-même cf. ; pour définir des constantes personnalisées, utilisez la fonction define(), dont la syntaxe est la suivante :
+                        <strong>boolean define(string nom_cte, divers valeur_cte, boolean casse)</strong>Voir la page <a href="../00_pages/03-page.php"target="_blank"><u>suivante</u></a></p>
+                    </div><!-- fin de la colonne -->
+                    <div class="col-sm-12 col-md-6">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Constantes</th>
+                                    <th scope="col">Résultats</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">PHP_VERSION</th>
+                                    <td>Version de PHP installé sur le serveur : 
+                                    <?php
+                                        echo PHP_VERSION;
+                                    ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">PHP_OS</th>
+                                    <td>Nom du système d'exploitation du serveur : 
+                                    <?php
+                                        echo PHP_OS;
+                                    ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">DEFAULT_INCLUDE_PATH</th>
+                                    <td>Chemin d'acces aux fichiers par defaut:
+                                    <?php
+                                        echo DEFAULT_INCLUDE_PATH;
+                                    ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">__FILE__</th>
+                                    <td>Nom du fichier en cours d'execution : 
+                                    <?php
+                                        echo __FILE__;
+                                    ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">__LINE__</th>
+                                    <td>Numéro de la ligne en cours d'execution : 
+                                    <?php
+                                        echo __LINE__;
+                                    ?></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!--fin de la colonne -->
+                </div><!-- fin de la rangée (row) -->
+
+                <hr>
+
             </main>
         </div>
 
         <!-- fin de la partie principale, col-8 -->
+
 
 
 
