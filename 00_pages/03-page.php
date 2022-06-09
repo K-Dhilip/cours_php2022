@@ -1,5 +1,5 @@
 <?php
-    define("PI", 3.1415926535, TRUE); // définition insensible à la casse (le nom de la variable), parce qu'on a mis TRUE
+    define("PI", 3.1415926535, TRUE ); // définition insensible à la casse (le nom de la variable), parce qu'on a mis TRUE
     echo "La constante PI vaut ".PI."<br>";
     echo "La constante pi vaut ".pi."<br>";
 
