@@ -17,7 +17,7 @@ require_once('../inc/functions.php')
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
 
-    <title>Cours_PHP2022-la méthode GET-POST</title>
+    <title>Cours_PHP2022-la méthode $_POST</title>
 
     <!-- mes styles -->
     <link rel="stylesheet" href="../css/style.css">
@@ -26,9 +26,9 @@ require_once('../inc/functions.php')
 <body class="bg-dark">
     <!-- JUMBOTRON -->
     <div class="jumbotron  text-center">
-        <h1 class="display-3">Cours_PHP2022 - Méthode GET</h1>
+        <h1 class="display-3">Cours_PHP2022 - Méthode POST</h1>
         <hr>
-        <p class="lead bg-light">$_GET [] représente les données qui transitent par l'URL.</p>
+        <p class="lead bg-light">La méthode POST réceptionne les données d'un formulaire, $_POST est une superglobale</p>
     </div>
     <!-- RANGEE PRINCIPALE -->
     <div class="row bg-light">
@@ -43,36 +43,43 @@ require_once('../inc/functions.php')
             <main class="container-fluid">
                 <div class="row">
                     <hr>
-                    <h2 class="col-sm-12 text-center" id="definition"><u>1- Introduction</u></h2>
-                    <div class="col-sm-12 col-md-6">
-                        <p>Il s'agit d'une superglobale et comme toutes les superglobales c'est un tableau. Superglobale signifie que c'est une variable disponible partout dans le script, y compris au sein des fonctions. Les informations transitent dans l'URL selon la syntaxe suivante: <code>mapage.php?indice1=valeur1&indiceN=valeurN</code></p>
-                        <p>Quand on récupère les données $_GET fabrique un tableau selon le schéma suivant: <code>$_GET = array('indice1' => 'valeur1','indiceN => valeurN');</code></p>
-                    </div>
-                    <!-- Fin de la colonne -->
-                    <div class="col-sm-12 col-md-6 text-center">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-4">
-                                <a href="method_get-ex01.php?article=Jean&couleur=bleu&prix=55" target="_blank">
-                                    <img src="../img/jean.jpg" alt="jean bleu" class="img-fluid">Jean bleu
-                                </a>
-                            </div>
-                            <div class="col-sm-12 col-md-4">
-                                <a href="method_get-ex01.php?article=Robe&couleur=rouge&prix=75" target="_blank">
-                                    <img src="../img/robe.jpg" alt="robe rouge" class="img-fluid">Robe rouge
-                                </a>
-                            </div>
-                            <div class="col-sm-12 col-md-4">
-                                <a href="method_get-ex01.php?article=Pull&couleur=blanc&prix=45" target="_blank">
-                                    <img src="../img/pull.jpg" alt="pull blanc" class="img-fluid">Pull blanc
-                                </a>
-                            </div>
-                        </div>
-                    </div><!-- Fin de la colonne -->
-                    
-               </div><!-- Fin de la rangée -->
-                
+                    <h2 class="col-sm-12 text-center" id="definition"><u>1- Formulaire</u></h2>
+                    <ul>
+                        <li>Un formulaire doit toujours être dans une balise <code>form</code> pour fonctionner.</li>
+                        <li>L'attribut method indique comment les données vont circuler vers le PHP.</li>
+                        <li>L'attribut action indique l'URL de destination des données (si l'attribut est vide, les données vont vers le même script ou la même page).</li>
+                        <li>Ensuite sur les names il ne faut pas les oublier sur les formulaires: ils constituent les indices de $_POST qui réceptionne les données.</li>
+                    </ul>
+
+                    <form action="../05_exos/method_form_traitement.php" method="POST" class="w-75 mx-auto">
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" class="form-control" id="prenom" name="prenom" required>
+                        </div><!-- Fin champs prénom -->
+
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" class="form-control" id="nom" name="nom" required>
+                        </div><!-- Fin champs nom -->
+
+                        <div class="form-group">
+                            <label for="commentaire">Commentaire</label>
+                            <textarea class="form-control" id="commentaire" row="2" name="commentaire" required></textarea>
+                        </div><!-- Fin champs commentaire -->
+
+                        <button type="submit" class="btn btn-info">Envoyer</button>
+
+                    </form>
+
+
+                </div><!-- Fin de la rangée -->
+
                 <hr>
                 <br><br>
+
+                <?php
+                // jevar_dump($_POST);
+                ?> 
 
             </main>
         </div>
