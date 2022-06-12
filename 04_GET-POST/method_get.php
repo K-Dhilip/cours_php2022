@@ -1,39 +1,22 @@
-<<<<<<< HEAD
 <?php require_once('../inc/functions.php') 
 
 ?>
-=======
-<?php
-require_once('../inc/functions.php')
-?>
-
->>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
 <!doctype html>
 <html lang="fr">
 
 <head>
-<<<<<<< HEAD
 
-=======
->>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<<<<<<< HEAD
 
     <!-- Bootstrap CSS v5.2.0-beta1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-=======
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
->>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
     <!-- font google -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
 
-<<<<<<< HEAD
     <title>Cours_php2022 -La Méthode GET</title>
     <!-- Mes styles -->
     <link rel="stylesheet" href="../css/style.css">
@@ -56,35 +39,10 @@ require_once('../inc/functions.php')
         <!-- ========================================================= -->
         <!-- Contenu principal -->
         <!-- ========================================================= -->
-=======
-    <title>Cours_PHP2022-la méthode GET-POST</title>
-
-    <!-- mes styles -->
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-
-<body class="bg-dark">
-    <!-- JUMBOTRON -->
-    <div class="jumbotron  text-center">
-        <h1 class="display-3">Cours_PHP2022 - Méthode GET</h1>
-        <hr>
-        <p class="lead bg-light">$_GET [] représente les données qui transitent par l'URL.</p>
-    </div>
-    <!-- RANGEE PRINCIPALE -->
-    <div class="row bg-light">
-        <!-- La barre de navigation en include (penser à toujours ajouter le JS en fin de page)    --->
-        <?php
-        require('../inc/sidenav.inc.php');
-        ?>
-        <!-- ============================================================== -->
-        <!-- Contenu principal -->
-        <!-- ============================================================== -->
->>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
         <div class="col-sm-8">
             <main class="container-fluid">
                 <div class="row">
                     <hr>
-<<<<<<< HEAD
                     <h2 class="col-sm-12 text-center" id="definition"><u>1-Introduction</u></h2>
                     <div class="col-sm-12 col-md-6">
                       <p>Il s'agit d'une superglobale et comme toutes les superglobales, cest un tableau.Superglobale signifie que c'est une variable disponible partout dans le script, y compris au sein des fonctions. Les informations transitent dans l'url selon la syntaxe suivante: <code>mapage.php?indice1=valeur1&indiceN=valeurN</code>.</p>
@@ -110,42 +68,12 @@ require_once('../inc/functions.php')
                         </div>
                     </div><!-- fin de la colonne -->
                 </div><!-- fin de la rangée -->
-=======
-                    <h2 class="col-sm-12 text-center" id="definition"><u>1- Introduction</u></h2>
-                    <div class="col-sm-12 col-md-6">
-                        <p>Il s'agit d'une superglobale et comme toutes les superglobales c'est un tableau. Superglobale signifie que c'est une variable disponible partout dans le script, y compris au sein des fonctions. Les informations transitent dans l'URL selon la syntaxe suivante: <code>mapage.php?indice1=valeur1&indiceN=valeurN</code></p>
-                        <p>Quand on récupère les données $_GET fabrique un tableau selon le schéma suivant: <code>$_GET = array('indice1' => 'valeur1','indiceN => valeurN');</code></p>
-                    </div>
-                    <!-- Fin de la colonne -->
-                    <div class="col-sm-12 col-md-6 text-center">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-4">
-                                <a href="method_get-ex01.php?article=Jean&couleur=bleu&prix=55" target="_blank">
-                                    <img src="../img/jean.jpg" alt="jean bleu" class="img-fluid">Jean bleu
-                                </a>
-                            </div>
-                            <div class="col-sm-12 col-md-4">
-                                <a href="method_get-ex01.php?article=Robe&couleur=rouge&prix=75" target="_blank">
-                                    <img src="../img/robe.jpg" alt="robe rouge" class="img-fluid">Robe rouge
-                                </a>
-                            </div>
-                            <div class="col-sm-12 col-md-4">
-                                <a href="method_get-ex01.php?article=Pull&couleur=blanc&prix=45" target="_blank">
-                                    <img src="../img/pull.jpg" alt="pull blanc" class="img-fluid">Pull blanc
-                                </a>
-                            </div>
-                        </div>
-                    </div><!-- Fin de la colonne -->
-                    
-               </div><!-- Fin de la rangée -->
->>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
                 
                 <hr>
                 <br><br>
 
             </main>
         </div>
-<<<<<<< HEAD
         <!-- fin de la partie principale, col-8 -->
 
     </div>
@@ -165,25 +93,3 @@ require_once('../inc/functions.php')
 </body>
 
 </html>
-=======
-
-
-    </div>
-    <!-- FIN DU CONTENU PRINCIPAL -->
-    <!-- LE FOOTER EN REQUIRE -->
-    <?php
-    require("../inc/footer.inc.php")
-    ?>
-
-    <!-- Optional JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-
-    <!-- le js pour la navigation  -->
-    <script src="../inc/sidenav.js"></script>
-
-</body>
-
-</html>
->>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec

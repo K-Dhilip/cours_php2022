@@ -86,7 +86,7 @@
                             <li>Interprétation par le serveur du code PHP contenu dans la page appelée</li>
                             <li>Envoi par le serveur d'un fichier dont le contenu est purement du HTML</li>
                         </ul>
-                        <a class="btn btn-primary btn-lg" href="info.php" role="button" target="_blank">Voir info.php</a>
+                        <a class="btn btn-primary btn-lg" href="info.php" role="button">Voir info.php</a>
                     </div>
                 </div>
                 <!-- fin de la row(rangée) -->
