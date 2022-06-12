@@ -1,26 +1,27 @@
 <!-- ================================================================================== -->
 <!-------------------------- NavBar  ---------------->
 <!-- ================================================================================== -->
-<nav class="col-sm-12 col-md-2 col-lg-3" id="sidebar">
+<nav class="col-sm-12 col-lg-3" id="sidebar">
+
 
     <ul class="list-unstyled components">
         <li>
-            <a href="#introSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-            <ul class=" list-unstyled" id="introSubmenu">
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
                 <li>
                     <a href="../00_pages/01-page.php">01-page</a>
                 </li>
                 <li>
-                <a href="../00_pages/02-page.php">02-page</a>
+                    <a href="../00_pages/02-page.php">02-page</a>
                 </li>
                 <li>
-                <a href="../00_pages/03-page.php">03-page</a>
+                    <a href="../00_pages/03-page.php">03-page</a>
                 </li>
             </ul>
         </li>
         <li>
             <a href="#introSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Intro</a>
-            <ul class=" list-unstyled" id="introSubmenu">
+            <ul class="collapse list-unstyled" id="introSubmenu">
                 <li>
                     <a href="../01_introduction/introduction.php">Introduction</a>
                 </li>
@@ -42,7 +43,7 @@
                     <a href="../04_GET-POST/method_get.php">Méthode GET</a>
                 </li>
                 <li>
-                    <a href="../04_GET-POST/method_post.php">Page 2</a>
+                    <a href="../04_GET-POST/method_post.php">Méthode POST</a>
                 </li>
             </ul>
         </li>
@@ -84,13 +85,13 @@
             <a href="#exerciceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Exercices</a>
             <ul class="collapse list-unstyled" id="exerciceSubmenu">
                 <li>
-                    <a href="../05_exos/01-exo.php">Page 1</a>
+                    <a href="../10_exos/01-exo.php">Page 1</a>
                 </li>
                 <li>
-                    <a href="../05_exos/02-exo.php">Page 2</a>
+                    <a href="../10_exos/02-exo.php">Page 2</a>
                 </li>
                 <li>
-                    <a href="../05_exos/03-exo.php">Page 3</a>
+                    <a href="../10_exos/03-exo.php">Page 3</a>
                 </li>
             </ul>
         </li>
