@@ -1,8 +1,18 @@
+<<<<<<< HEAD
 <?php 
     require_once('../inc/functions.php');
 ?> 
 <!doctype html>
 <html lang="fr">
+=======
+<?php
+require_once('../inc/functions.php')
+?>
+
+<!doctype html>
+<html lang="fr">
+
+>>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,11 +25,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
 
+<<<<<<< HEAD
     <title>Cours PHP7 - Exos pratiques - 1</title>
+=======
+    <title>Cours_PHP2022-la méthode $_POST</title>
+>>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
 
     <!-- mes styles -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
+<<<<<<< HEAD
 <body class="bg-dark">
     <!-- JUMBOTRON -->
     <div class="jumbotron bg-dark text-white text-center">
@@ -34,11 +49,28 @@
         require('../inc/sidenav.inc.php')
         ?>
 
+=======
+
+<body class="bg-dark">
+    <!-- JUMBOTRON -->
+    <div class="jumbotron  text-center">
+        <h1 class="display-3">Cours_PHP2022 - Méthode POST</h1>
+        <hr>
+        <p class="lead bg-light">La méthode POST réceptionne les données d'un formulaire, $_POST est une superglobale</p>
+    </div>
+    <!-- RANGEE PRINCIPALE -->
+    <div class="row bg-light">
+        <!-- La barre de navigation en include (penser à toujours ajouter le JS en fin de page)    --->
+        <?php
+        require('../inc/sidenav.inc.php');
+        ?>
+>>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
         <!-- ============================================================== -->
         <!-- Contenu principal -->
         <!-- ============================================================== -->
         <div class="col-sm-8">
             <main class="container-fluid">
+<<<<<<< HEAD
                 <!-- BOUTON DE LA NAV -->
                 <button type="button" id="sidebarCollapse" class="navbar-btn">
                 <span></span>
@@ -107,10 +139,45 @@
                     </div><!-- fin col -->
 
                 </div><!-- fin de la rangée -->
+=======
+                <div class="row">
+                    <hr>
+                    <h2 class="col-sm-12 text-center" id="definition"><u>1- Formulaire</u></h2>
+                    <ul>
+                        <li>Un formulaire doit toujours être dans une balise <code>form</code> pour fonctionner.</li>
+                        <li>L'attribut method indique comment les données vont circuler vers le PHP.</li>
+                        <li>L'attribut action indique l'URL de destination des données (si l'attribut est vide, les données vont vers le même script ou la même page).</li>
+                        <li>Ensuite sur les names il ne faut pas les oublier sur les formulaires: ils constituent les indices de $_POST qui réceptionne les données.</li>
+                    </ul>
+
+                    <form action="../05_exos/method_form_traitement.php" method="POST" class="w-75 mx-auto">
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" class="form-control" id="prenom" name="prenom" required>
+                        </div><!-- Fin champs prénom -->
+
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" class="form-control" id="nom" name="nom" required>
+                        </div><!-- Fin champs nom -->
+
+                        <div class="form-group">
+                            <label for="commentaire">Commentaire</label>
+                            <textarea class="form-control" id="commentaire" row="2" name="commentaire" required></textarea>
+                        </div><!-- Fin champs commentaire -->
+
+                        <button type="submit" class="btn btn-info">Envoyer</button>
+
+                    </form>
+
+
+                </div><!-- Fin de la rangée -->
+>>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
 
                 <hr>
                 <br><br>
 
+<<<<<<< HEAD
             </main>
         </div> <!-- FIN DE LA PARTIE PRINCIPALE COL-8 -->
 
@@ -128,6 +195,21 @@
     <!-- LE FOOTER EN REQUIRE -->
     <?php
         require("../inc/footer.inc.php")
+=======
+                <?php
+                // jevar_dump($_POST);
+                ?> 
+
+            </main>
+        </div>
+
+
+    </div>
+    <!-- FIN DU CONTENU PRINCIPAL -->
+    <!-- LE FOOTER EN REQUIRE -->
+    <?php
+    require("../inc/footer.inc.php")
+>>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
     ?>
 
     <!-- Optional JavaScript -->
@@ -139,4 +221,8 @@
     <script src="../inc/sidenav.js"></script>
 
 </body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
 </html>

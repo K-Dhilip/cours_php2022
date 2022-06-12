@@ -12,13 +12,22 @@
     }
     // création d'une fonction qui var_dump une variable : très utile pour un tableau
     function jevar_dump($mavariable){// la fonction nommée avec son paramètre : une variable qu'on va pouvoir modifier pour mettre le nom de celle qu'on veut afficher
+<<<<<<< HEAD
         echo "<small class=\"bg-secondary text-danger mx-auto mt-3 \">var_dump :<pre class=\"alert alert-success  w-100 \">";
+=======
+        echo "<small class=\"bg-success text-white mx-auto mt-3 \">var_dump :<pre class=\"alert alert-success w-50 \">";
+>>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
         var_dump($mavariable);
         echo "</pre>";
     }
     function jeprint_r($mavariable){
+<<<<<<< HEAD
         echo "<small class=\"bg-primary text-white p-2\">print_r :</small><pre class=\"alert alert-primary w-50\">";
         print_r($mavariable);
+=======
+        echo "<small class=\"bg-primary text-white p-2\">var_dump :<pre class=\"alert alert-primary w-75\">";
+        jeprint_r($mavariable);
+>>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
         echo "</pre>";
     }
 ?>

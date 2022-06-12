@@ -21,7 +21,11 @@
 <body class="bg-light">
     <!-- JUMBOTRON -->
     <div class="jumbotron bg-dark text-white text-center">
+<<<<<<< HEAD
         <h1 class="display-3">Cours PHP_2022 - Premier exercice</h1>
+=======
+        <h1 class="display-3">Cours PHP7 - Premier exercice</h1>
+>>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
         <p class="lead">Première page d'exercice pour le PHP</p>
     </div>
 
@@ -29,7 +33,11 @@
     <div class="row">
         <!-- LA NAVIGATION EN INCLUDE (penser à ajouter le JS qui va avec en fin de page) -->
         <?php
+<<<<<<< HEAD
         require('../inc/sidenav.inc.php');
+=======
+        require('../inc/sidenav.inc.php')
+>>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
         ?>
 
         <!-- ============================================================== -->
@@ -37,7 +45,22 @@
         <!-- ============================================================== -->
         <div class="col-sm-8">
             <main class="container-fluid">
+<<<<<<< HEAD
                
+=======
+                <!-- BOUTON DE LA NAV -->
+                <button type="button" id="sidebarCollapse" class="navbar-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <?php
+                    $x = "8";
+                    jevar_dump($x);
+                ?>
+
+>>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
                 <div class="row">
                     <hr>
                     <h2 class="col-sm-12 text-center" id="definition">1 - Tableau créé par la variable $_GET[]</h2>
@@ -48,6 +71,7 @@
                                 // echo "<p>" . $_GET['article']. " - " . $_GET['couleur']. " <br> " . $_GET['prix'] . "€</p>";
                                 echo "
                                 <div class=\"card text-center\">
+<<<<<<< HEAD
                                 <div class=\"card-header\">
                                     À la Une !
                                 </div>
@@ -55,6 +79,15 @@
                                     <h3 class=\"card-title\">" . $_GET['article'].  " " . $_GET['couleur']. "</h3>
                                     <p class=\"card-text\">Découvrez nos vêtements de qualité en matière 100% naturelle et recyclables. Des questions ? N'hésitez pas à nous contacter, nous sommes disponibles 7j/7 et 24h/24.</p>
                                     <a href=\"#\" class=\"btn btn-secondary\">Ajoutez au panier</a>
+=======
+                                <div class=\"card-header text-dark\">
+                                    À la Une !
+                                </div>
+                                <div class=\"card-body\">
+                                    <h3 class=\"card-title text-dark\">" . $_GET['article'].  " " . $_GET['couleur']. "</h3>
+                                    <p class=\"card-text text-dark\">Découvrez nos vêtements de qualité en matière 100% naturelle et recyclables. Des questions ? N'hésitez pas à nous contacter, nous sommes disponibles 7j/7 et 24h/24.</p>
+                                    <a href=\"#\" class=\"btn btn-primary\">Ajoutez au panier</a>
+>>>>>>> 6a1f9f2652f404f65e86e8daf642973e0959cdec
                                 </div>
                                 <div class=\"card-footer text-muted\">
                                 " . $_GET['prix']. " €
