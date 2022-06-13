@@ -29,10 +29,9 @@
     <div class="row">
 
         <?php
-        require('../inc/sidenav.inc.php');
-        //ici on appelle le fichier sidenav.inc.php
+        require('../inc/sidenav.inc.php'); //ici on appelle le fichier sidenav.inc.php
         ?>
-
+     
         <!-- ========================================================= -->
         <!-- Contenu principal -->
         <!-- ========================================================= -->
@@ -86,7 +85,7 @@
                             <li>Interprétation par le serveur du code PHP contenu dans la page appelée</li>
                             <li>Envoi par le serveur d'un fichier dont le contenu est purement du HTML</li>
                         </ul>
-                        <a class="btn btn-primary btn-lg" href="info.php" role="button">Voir info.php</a>
+                        <a class="btn btn-primary btn-lg" href="info.php" role="button" target="_blank">Voir info.php</a>
                     </div>
                 </div>
                 <!-- fin de la row(rangée) -->
@@ -125,8 +124,8 @@
             </main>
         </div>
         <!-- fin de la partie principale, col-8 -->
-
-
+       
+    
 
 
 
@@ -138,10 +137,9 @@
 
 
     <!-- Bootstrap JavaScript Libraries -->
-     <!-- Optional JavaScript -->
-     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 
     <!-- mon script js pour la navigation -->
     <script src="../inc/sidenav.js"></script>
