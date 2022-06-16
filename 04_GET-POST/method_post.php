@@ -20,7 +20,7 @@
     <!-- mes styles -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-light">
+<body class="bg-dark">
     <!-- JUMBOTRON -->
     <div class="jumbotron bg-dark text-white text-center">
         <h1 class="display-3">Cours PHP7 - La méthode POST</h1>
@@ -61,17 +61,17 @@
 
                             <div class="form-group">
                                 <label for="prenom">Prénom</label>
-                                <input type="text" class="form-control" id="prenom" placeholder="Prénom" name="prenom" required>
+                                <input type="text" class="form-control" id="prenom" name="prenom"  required>
                             </div><!-- fin champs prénom -->
 
                             <div class="form-group">
                                 <label for="">Nom</label>
-                                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+                                <input type="text" class="form-control" id="nom" name="nom" required>
                             </div><!-- fin champs nom -->
 
                             <div class="form-group">
                                 <label for="">Votre commentaire</label>
-                                <textarea class="form-control" id="commentaire" placeholder="Votre commentaire merci..." rows="2" name="commentaire" required></textarea>
+                                <textarea class="form-control"  id="commentaire" rows="2" name="commentaire" required></textarea>
                             </div><!-- fin champs commentaire -->
 
                             <button type="submit" class="btn btn-small btn-info">Envoyer</button>
