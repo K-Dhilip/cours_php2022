@@ -1,15 +1,38 @@
 <?php
 require_once('../inc/functions.php');
+
 $host = 'localhost';
-$database ='entreprise';
+$database = 'entreprise';
 $user = 'root';
 $psw = '';
-$pdoENT = new PDO('mysql:host='.$dbname=',$datebase,$user,$psw');
-$pdoENT->exec("set NAMES utf8");
-if (!empty ($))
+
+$pdoENT = new PDO('mysql:host=' . $host . ';dbname=' . $database, $user, $psw);
+$pdoENT->exec("SET NAMES utf8");
+
+if (!empty($_POST)) {
+    //pour se prémunir des failles nous faisons ceci
+    $_POST['prenom'] = htmlspecialchars($_POST['prenom']);
+    $_POST['nom'] = htmlspecialchars($_POST['nom']);
+    $_POST['sexe'] = htmlspecialchars($_POST['sexe']);
+    $_POST['service'] = htmlspecialchars($_POST['service']);
+    $_POST['date_embauche'] = htmlspecialchars($_POST['date_embauche']);
+    $_POST['salaire'] = htmlspecialchars($_POST['salaire']);
+
+    //$requete = $pdoENT->prepare( " INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES (:prenom, :nom, :sexe, :service, NOW(), :salaire) " );
+    //NOW() renvoie la date d'aujourd'hui
+
+    $requete = $pdoENT->prepare(" INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES (:prenom, :nom, :sexe, :service, :date_embauche, :salaire) ");
+
+    $requete->execute(array(
+        ':prenom' => $_POST['prenom'],
+        ':nom' => $_POST['nom'],
+        ':sexe' => $_POST['sexe'],
+        ':service' => $_POST['service'],
+        ':date_embauche' => $_POST['date_embauche'],
+        ':salaire' => $_POST['salaire'],
+    ));
+} //fin if !empty
 ?>
-
-
 <!doctype html>
 <html lang="fr">
 
@@ -25,7 +48,7 @@ if (!empty ($))
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
 
-    <title>Cours PHP2022 - Base de données "dialogue"</title>
+    <title>Cours PHP7 - Entreprise et employés</title>
 
     <!-- mes styles -->
     <link rel="stylesheet" href="../css/style.css">
@@ -34,9 +57,7 @@ if (!empty ($))
 <body class="bg-light">
     <!-- JUMBOTRON -->
     <div class="jumbotron bg-dark text-white text-center">
-        <h1 class="display-3">Cours PHP2022 - Base de données "dialogue"</h1>
-        <p class="lead">La méthode POST réceptionne les données d'un formulaire, $_POST est une superglobale</p>
-
+        <h1 class="display-3">Cours PHP7 - Entreprise et employés</h1>
     </div>
 
     <!-- RANGÉE PRINCIPALE -->
@@ -44,7 +65,6 @@ if (!empty ($))
         <!-- LA NAVIGATION EN INCLUDE (penser à ajouter le JS qui va avec en fin de page) -->
         <?php
         require('../inc/sidenav.inc.php')
-
         ?>
 
         <!-- ============================================================== -->
@@ -52,22 +72,33 @@ if (!empty ($))
         <!-- ============================================================== -->
         <div class="col-sm-8">
             <main class="container-fluid">
+                <!-- BOUTON DE LA NAV -->
+
 
                 <div class="row">
                     <hr>
-                    <h2 class="col-sm-12 text-center">1- Tableau des employes </h2>
-                </div><!-- fin de la colonne -->
+                    <h2 class="col-sm-12 text-center" id="">1 - Tableau des employés</h2>
+                    <div class="col-sm-12">
+                        <?php
+                        $requete = $pdoENT->query("SELECT * FROM employes ORDER BY prenom");
 
-        </div><!-- fin de la rangée (row)-->
-        <hr>
-        <div class="row">
-            <h2 class="col-sm-12 text-center">2-Exercice</h2>
+                        $nbr_employes = $requete->rowCount();
 
-        </div><!-- fin de la rangée (row)-->
-        <br><br>
+                        echo "<p>Il y a " . $nbr_employes . " employés dans la base.</p>";
 
-        </main>
-    </div> <!-- FIN DE LA PARTIE PRINCIPALE COL-8 -->
+                        echo "<table class=\"table table-dark table-striped\">";
+                        ?>
+
+                    </div><!-- fin de la colonne -->
+
+                </div><!-- fin de la rangée -->
+
+
+                <br><br>
+
+            </main>
+        </div> <!-- FIN DE LA PARTIE PRINCIPALE COL-8 -->
+
 
     </div>
 
