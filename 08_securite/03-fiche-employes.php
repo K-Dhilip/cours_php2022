@@ -214,7 +214,7 @@ if (!empty($_POST)) {
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-large p-2 text-center  btn-danger">Envoyer</button>
+                            <button type="submit" class="btn btn-large p-2 text-center  btn-danger">Envoyer-send</button>
                         </div>
                     </form>
                 </div><!-- fin col -->
