@@ -4,15 +4,15 @@
 
  Pour le pays "inconnu" vous afficherez "Ca n'existe pas !" à la place de la phrase précédente.   -->
 
- <?php
-    $pays = array('France', 'Italie', 'Espagne', 'inconnu', 'Allemagne');
-    $capitale = ['Paris', 'Rome', 'Madrid', '?', 'Berlin'];
-    $tableau = count($pays);
+<?php
+$pays = array('France', 'Italie', 'Espagne', 'inconnu', 'Allemagne');
+$capitale = ['Paris', 'Rome', 'Madrid', '?', 'Berlin'];
+$tableau = count($pays);
 
-    for($i = 0; $i < $tableau; $i++){
-        echo "<p>La capitale " .$capitale[$i]. " se trouve en " .$pays[$i]. ". <br>";
-    }
-    echo "</p>";
+for ($i = 0; $i < $tableau; $i++) {
+	echo "<p>La capitale " . $capitale[$i] . " se trouve en " . $pays[$i] . ". <br>";
+}
+echo "</p>";
 ?>
 
 <?php
@@ -25,29 +25,29 @@
 
  */
 
- $pays = array(
-     'France'    => 'Paris', 
-     'Italie'    => 'Rome', 
-     'Espagne'   => 'Madrid', 
-     'inconnu'   => '?', 
-     'Allemagne' => 'Berlin'
-    );
+$pays = array(
+	'France'    => 'Paris',
+	'Italie'    => 'Rome',
+	'Espagne'   => 'Madrid',
+	'inconnu'   => '?',
+	'Allemagne' => 'Berlin'
+);
 
 print_r($pays);
 echo count($pays);
 
 
 foreach ($pays as $key => $value) {
-    // var_dump($pays);
-    // echo '<hr>';
-    // var_dump($key);
-    // echo '<hr>';
-    // var_dump($value);
-    if($key == 'inconnu') {
-        echo '<p>Ce pays n\'existe pas !</p>';
-    } else {
-        echo '<p>La capitale '. $value .' se situe en '. $key .'</p>';
-    }
+	// var_dump($pays);
+	// echo '<hr>';
+	// var_dump($key);
+	// echo '<hr>';
+	// var_dump($value);
+	if ($key == 'inconnu') {
+		echo '<p>Ce pays n\'existe pas !</p>';
+	} else {
+		echo '<p>La capitale ' . $value . ' se situe en ' . $key . '</p>';
+	}
 }
 var_dump($value);
 
@@ -61,11 +61,11 @@ var_dump($value);
  
   3- Vous validez que la date fournie est bien une date. La fonction retourne un message si ce n'est pas le cas. -->
 
-  Exercice 2 Correction
+Exercice 2 Correction
 
 
-  <?php
-  /*
+<?php
+/*
     1- Créer une fonction qui retourne la conversion d'une date FR en date US ou inversement.
     Cette fonction prend 2 paramètres : une date et le format de conversion de sortie "US" ou "FR". Pour faire cette conversion, vous utilisez la classe DateTime.
         
@@ -74,72 +74,73 @@ var_dump($value);
     3- Vous validez que la date fournie est bien une date. La fonction retourne un message si ce n'est pas le cas.
     
    */
-  
-  function convertir($date, $format) {
-      // point 2
-      if ($format != 'FR' && $format != 'US') { // vérification du format de la date
-          return '<p>La date renseignée n\'est pas un format pris en charge.</p>';
-      }
-      
-      // point 3
-      if (!strtotime($date)) { // vérification de la validité de la date
-          return '<p>La date renseignée n\'est pas valide.</p>';
-      } 
-      
-      // point 1
-      $date_convert = new DateTime($date);
-      if ($format == 'FR') { // FR en US
-          return $date_convert->format('d/m/Y');
-      } elseif ($format == 'US') { // US en FR
-          return $date_convert->format('Y-m-d');
-      }
-  
-  }
-  
-  echo convertir('31-01-2018', 'US');
-  
-  echo '<hr>';
-  /***
-   * CORRECTION
-   */
-  function afficheDate($date, $format) {
-      // On contrôle d'abord les valeurs reçues :
-      if ($format != 'FR' && $format != 'US') {
-          return '<p>Le format demandé n\'est pas valide.</p>'; // return nous fait quitter la fonction, le reste du code qui suit n'est donc pas exécuté => ici je n'ai donc pas besoin d'un else ou elseif puisque si la condition est true le return 
-      }
-  
-      if (!strtotime($date)) {
-          return '<p>La date est invalide.</p>';
-      } 
-  
-      // Traitement de l'affichage de la date :
-      $objetDate = new DateTime($date);
-      if ($format == 'FR'){
-          return $objetDate->format('d-m-Y');
-      } else {
-          return $objetDate->format('Y-m-d');
-      }
-      // return 'test';
-  }
-  
-  echo afficheDate('2018-08-15', 'FR');
-  
-  
-  
-  // A LIRE => http://php.net/manual/fr/function.checkdate.php
-  /**
-   * function validateDate($date, $format = 'Y-m-d H:i:s')
+
+function convertir($date, $format)
+{
+	// point 2
+	if ($format != 'FR' && $format != 'US') { // vérification du format de la date
+		return '<p>La date renseignée n\'est pas un format pris en charge.</p>';
+	}
+
+	// point 3
+	if (!strtotime($date)) { // vérification de la validité de la date
+		return '<p>La date renseignée n\'est pas valide.</p>';
+	}
+
+	// point 1
+	$date_convert = new DateTime($date);
+	if ($format == 'FR') { // FR en US
+		return $date_convert->format('d/m/Y');
+	} elseif ($format == 'US') { // US en FR
+		return $date_convert->format('Y-m-d');
+	}
+}
+
+echo convertir('31-01-2018', 'US');
+
+echo '<hr>';
+/***
+ * CORRECTION
+ */
+function afficheDate($date, $format)
+{
+	// On contrôle d'abord les valeurs reçues :
+	if ($format != 'FR' && $format != 'US') {
+		return '<p>Le format demandé n\'est pas valide.</p>'; // return nous fait quitter la fonction, le reste du code qui suit n'est donc pas exécuté => ici je n'ai donc pas besoin d'un else ou elseif puisque si la condition est true le return 
+	}
+
+	if (!strtotime($date)) {
+		return '<p>La date est invalide.</p>';
+	}
+
+	// Traitement de l'affichage de la date :
+	$objetDate = new DateTime($date);
+	if ($format == 'FR') {
+		return $objetDate->format('d-m-Y');
+	} else {
+		return $objetDate->format('Y-m-d');
+	}
+	// return 'test';
+}
+
+echo afficheDate('2018-08-15', 'FR');
+
+
+
+// A LIRE => http://php.net/manual/fr/function.checkdate.php
+/**
+ * function validateDate($date, $format = 'Y-m-d H:i:s')
   {
       $d = DateTime::createFromFormat($format, $date);
       return $d && $d->format($format) == $date;
   }
-  */
+ */
 
-  ?>
-  
-  
+?>
 
-  <!-- Exercice 3- Créer une base de données "contacts" avec une table "contact" :
+
+
+<!-- Exercice 3- Créer une base de données "contacts" avec une table "contact" :
       id_contact PK AI INT(3)
       nom VARCHAR(20)
       prenom VARCHAR(20)
@@ -160,7 +161,7 @@ var_dump($value);
     4- Ajouter les contacts à la BDD et afficher un message en cas de succès ou en cas d'échec. -->
 
 
-    <?php
+<?php
 
 /* 1- Créer une base de données "contacts" avec une table "contact" :
 	  id_contact PK AI INT(3)
@@ -192,13 +193,13 @@ var_dump($value);
 // -----------------
 // ⚡️ pour Mac ⚡️
 $pdo = new PDO(
-	'mysql:host=localhost;dbname=contacts',// driver mysql (pourrait être oracle, IBM, ODBC...) + nom de la BDD
+	'mysql:host=localhost;dbname=contacts', // driver mysql (pourrait être oracle, IBM, ODBC...) + nom de la BDD
 	'root', // pseudo de la BDD
 	'', // mdp de la BDD
-    //'root', // mdp de la BDD ⚡️ pour Mac ⚡️
+	//'root', // mdp de la BDD ⚡️ pour Mac ⚡️
 	array(
 		PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING, // pour afficher les messages d'erreur SQL
-		PDO::MYSQL_ATTR_INIT_COMMAND => 'set NAMES utf8'// définition du jeu de caractère des échanges avec la BDD
+		PDO::MYSQL_ATTR_INIT_COMMAND => 'set NAMES utf8' // définition du jeu de caractère des échanges avec la BDD
 	)
 );
 
@@ -234,7 +235,7 @@ function debug($param, $exit = 2)
  * ****************************************** III- TRAITEMENT **********************************************
  */
 // III-1. Vérifications du formulaire
-if($_POST){
+if ($_POST) {
 	// debug($_POST);
 
 	if (!isset($_POST['prenom']) || strlen($_POST['prenom']) < 2 || strlen($_POST['prenom']) > 20) $msg .= '<div class="alert alert-danger">Le prénom doit contenir entre 2 et 20 caractères.</div>';
@@ -243,7 +244,7 @@ if($_POST){
 
 	if (!isset($_POST['annee_rencontre']) || $_POST['annee_rencontre'] == '') $msg .= '<div class="alert alert-danger">Une année de rencontre doit être sélectionnée.</div>';
 
-	if (!isset($_POST['telephone']) || !preg_match('#^[0-9]{10}$#', $_POST['telephone'])) $msg .= '<div class="alert alert-danger">Le téléphone est un numéro à 10 chiffres.</div>';
+	if (!isset($_POST['telephone']) || !preg_match('#^[0-9]{11}$#', $_POST['telephone'])) $msg .= '<div class="alert alert-danger">Le téléphone est un numéro à 10 chiffres.</div>';
 
 	if (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) $msg .= '<div class="alert alert-danger">L\'email est incorrect.</div>';
 
@@ -256,7 +257,7 @@ if($_POST){
 		foreach ($_POST as $indice => $valeur) {
 			$_POST[$indice] = htmlspecialchars($valeur, ENT_QUOTES); // on prend la valeur que l'on traite avec htmlspecialchars() puis que l'on range dans son emplaçement initial : $_POST[$indice] (image du nettoyage des chaussures)
 		}
-		
+
 		//-- 2- requête préparée
 		$req = $pdo->prepare("INSERT INTO contact (nom, prenom, telephone, annee_rencontre, email, type_contact) VALUES (:nom, :prenom, :telephone, :annee_rencontre, :email, :type_contact)");
 
@@ -271,7 +272,7 @@ if($_POST){
 		$req->bindParam(':type_contact', $_POST['type_contact']);
 
 		//-- 4- exécution de la requête
-		$res = $req->execute(); 
+		$res = $req->execute();
 
 		//-- 5- Message de réussite ou d'échec de l'enregistrement
 		if ($res) {
@@ -312,14 +313,16 @@ $table_contacts = $pdo->query("SELECT * FROM contact");
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Contacts</title>
 	<!-- Bootstrap Core CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
+
 <body>
 	<div class="container">
 		<div class="row bg-info mt-4 mb-4">
@@ -359,10 +362,10 @@ $table_contacts = $pdo->query("SELECT * FROM contact");
 							<label for="type_contact">Type de contact</label><br>
 							<select name="type_contact" id="type_contact" class="form-control">
 								<option value="">Choisir</option>
-								<option value="ami" <?php if (isset($_POST['type_contact']) && $_POST['type_contact'] == 'ami') echo 'selected'; ?> >Ami</option>
-								<option value="famille" <?php if (isset($_POST['type_contact']) && $_POST['type_contact'] == 'famille') echo 'selected'; ?> >Famille</option>
-								<option value="professionnel" <?php if (isset($_POST['type_contact']) && $_POST['type_contact'] == 'professionnel') echo 'selected'; ?> >Professionnel</option>
-								<option value="autre" <?php if (isset($_POST['type_contact']) && $_POST['type_contact'] == 'autre') echo 'selected'; ?> >Autre</option>
+								<option value="ami" <?php if (isset($_POST['type_contact']) && $_POST['type_contact'] == 'ami') echo 'selected'; ?>>Ami</option>
+								<option value="famille" <?php if (isset($_POST['type_contact']) && $_POST['type_contact'] == 'famille') echo 'selected'; ?>>Famille</option>
+								<option value="professionnel" <?php if (isset($_POST['type_contact']) && $_POST['type_contact'] == 'professionnel') echo 'selected'; ?>>Professionnel</option>
+								<option value="autre" <?php if (isset($_POST['type_contact']) && $_POST['type_contact'] == 'autre') echo 'selected'; ?>>Autre</option>
 							</select>
 						</div> <!-- /.col -->
 					</div> <!-- /.row -->
@@ -375,31 +378,31 @@ $table_contacts = $pdo->query("SELECT * FROM contact");
 			<div class="col-12">
 				<div class="card mt-8">
 					<div class="card-header alert-warning">Répertoire des contacts</div><!-- /.card-header alert-warning -->
-			
-					<?php 	
-						echo '<table class="table table-striped table-hover table-info mb-0">';
-						// affichage de la ligne des entêtes dynamiquement :
+
+					<?php
+					echo '<table class="table table-striped table-hover table-info mb-0">';
+					// affichage de la ligne des entêtes dynamiquement :
+					echo '<tr>';
+					for ($i = 0; $i < $table_contacts->columnCount(); $i++) {
+						//debug($resultat->getColumnMeta($i)); // récupère les informations contextuelles de chaque champs de la table parcourue 
+						// et on voit que l'indice 'name' ramène le titre des champs
+						// la méthode getColumnMeta() retourne un array qui contient notamment l'indice "name" avec le nom de
+						// chaque colonne (= champs de la table SQL)
+
+						$colonne = $table_contacts->getColumnMeta($i);
+
+						echo '<th scope="col">' . $colonne['name'] . '</th>'; // l'indice "name" contient le nom du champ à chaque tour de boucle
+					}
+					echo '</tr>';
+
+					//-- Affichage des lignes
+					while ($ligne = $table_contacts->fetch(PDO::FETCH_ASSOC)) { // $ligne => 1 ligne de la table de la BDD
 						echo '<tr>';
-						for ($i = 0; $i < $table_contacts->columnCount(); $i++) {
-							//debug($resultat->getColumnMeta($i)); // récupère les informations contextuelles de chaque champs de la table parcourue 
-							// et on voit que l'indice 'name' ramène le titre des champs
-							// la méthode getColumnMeta() retourne un array qui contient notamment l'indice "name" avec le nom de
-							// chaque colonne (= champs de la table SQL)
-
-							$colonne = $table_contacts->getColumnMeta($i);
-
-							echo '<th scope="col">' . $colonne['name'] . '</th>'; // l'indice "name" contient le nom du champ à chaque tour de boucle
+						// $ligne est tableau associatif, donc je peux faire une FOREACH pour le parcourir
+						foreach ($ligne as $information) {
+							echo '<td>' . $information . '</td>';
 						}
 						echo '</tr>';
-
-						//-- Affichage des lignes
-						while ($ligne = $table_contacts->fetch(PDO::FETCH_ASSOC)) { // $ligne => 1 ligne de la table de la BDD
-							echo '<tr>';
-							// $ligne est tableau associatif, donc je peux faire une FOREACH pour le parcourir
-							foreach ($ligne as $information) {
-								echo '<td>' . $information . '</td>';
-							}
-							echo '</tr>';
-						}
-						echo '</table>';
+					}
+					echo '</table>';
 					?>
