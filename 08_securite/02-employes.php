@@ -1,41 +1,39 @@
-<?php
-require_once('../inc/functions.php');
+<?php 
+    require_once('../inc/functions.php');
 
-$host = 'localhost';
-$database = 'entreprise';
-$user = 'root';
-$psw = '';
+    $host = 'localhost';
+    $database = 'entreprise';
+    $user = 'root';
+    $psw = ''; // mettre root si on est sur mac
 
-$pdoENT = new PDO('mysql:host=' . $host . ';dbname=' . $database, $user, $psw);
-$pdoENT->exec("SET NAMES utf8");
+    $pdoENT = new PDO('mysql:host=' . $host . ';dbname=' .$database, $user,$psw);
+    $pdoENT->exec("SET NAMES utf8");
 
-if (!empty($_POST)) {
-    //pour se prémunir des failles nous faisons ceci
-    $_POST['prenom'] = htmlspecialchars($_POST['prenom']);
-    $_POST['nom'] = htmlspecialchars($_POST['nom']);
-    $_POST['sexe'] = htmlspecialchars($_POST['sexe']);
-    $_POST['service'] = htmlspecialchars($_POST['service']);
-    $_POST['date_embauche'] = htmlspecialchars($_POST['date_embauche']);
-    $_POST['salaire'] = htmlspecialchars($_POST['salaire']);
+    if(!empty($_POST)){
+        // pour se prémunir des failles nous faisons ceci
+        $_POST['prenom'] = htmlspecialchars($_POST['prenom']);
+        $_POST['nom'] = htmlspecialchars($_POST['nom']);
+        $_POST['sexe'] = htmlspecialchars($_POST['sexe']);
+        $_POST['service'] = htmlspecialchars($_POST['service']);
+        $_POST['date_embauche'] = htmlspecialchars($_POST['date_embauche']);
+        $_POST['salaire'] = htmlspecialchars($_POST['salaire']);
 
-    //$requete = $pdoENT->prepare( " INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES (:prenom, :nom, :sexe, :service, NOW(), :salaire) " );
-    //NOW() renvoie la date d'aujourd'hui
+        $requete = $pdoENT-> prepare("INSERT INTO employes(prenom, nom, sexe, service, date_embauche, salaire) VALUES (:prenom, :nom, :sexe, :service, :date_embauche, :salaire)");
+        
+        $requete->execute(array(
+            ':prenom' => $_POST['prenom'], 
+            ':nom' => $_POST['nom'],
+            ':sexe' => $_POST['sexe'],
+            ':service' => $_POST['service'],
+            ':date_embauche' => $_POST['date_embauche'],
+            ':salaire' => $_POST['salaire'],
 
-    $requete = $pdoENT->prepare(" INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES (:prenom, :nom, :sexe, :service, :date_embauche, :salaire) ");
-
-    $requete->execute(array(
-        ':prenom' => $_POST['prenom'],
-        ':nom' => $_POST['nom'],
-        ':sexe' => $_POST['sexe'],
-        ':service' => $_POST['service'],
-        ':date_embauche' => $_POST['date_embauche'],
-        ':salaire' => $_POST['salaire'],
-    ));
-} //fin if !empty
-?>
+        ));
+    };
+    // fin de if not empty
+?> 
 <!doctype html>
 <html lang="fr">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -48,18 +46,18 @@ if (!empty($_POST)) {
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
 
-    <title>Cours PHP7 - Entreprise et employés</title>
+    <title>Cours PHP2022 - Entreprise et employés.</title>
 
     <!-- mes styles -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body class="bg-light">
     <!-- JUMBOTRON -->
     <div class="jumbotron bg-dark text-white text-center">
-        <h1 class="display-3">Cours PHP7 - Entreprise et employés</h1>
+        <h1 class="display-3">Cours PHP2022 - Entreprise et employés</h1>
+        
     </div>
-
+    
     <!-- RANGÉE PRINCIPALE -->
     <div class="row">
         <!-- LA NAVIGATION EN INCLUDE (penser à ajouter le JS qui va avec en fin de page) -->
@@ -67,68 +65,66 @@ if (!empty($_POST)) {
         require('../inc/sidenav.inc.php')
         ?>
 
-        <!-- ============================================================== -->
-        <!-- Contenu principal -->
-        <!-- ============================================================== -->
-        <div class="col-sm-8">
-            <main class="container-fluid">
-                <!-- BOUTON DE LA NAV -->
+<!-- ============================================================== -->
+<!-- Contenu principal -->
+<!-- ============================================================== -->
 
+<div class="col-sm-8">
+    <main class="container-fluid">
+        <div class="row">
+            <hr>
+            <h2 class="col-sm-12 text-center">1- Tableau des employés</h2>
+            <div class="col-sm-12">
+                <?php
+                    $requete = $pdoENT->query("SELECT * FROM employes ORDER BY prenom");
+                    $nbr_employes = $requete->rowCount();
+                    echo "<p>Il y a " .$nbr_employes. " employés dans notre entreprise.</p>";
 
-                <div class="row">
-                    <hr>
-                    <h2 class="col-sm-12 text-center" id="">1 - Tableau des employés</h2>
-                    <div class="col-sm-12">
-                        <?php
-                        $requete = $pdoENT->query("SELECT * FROM employes ORDER BY prenom");
-
-                        $nbr_employes = $requete->rowCount();
-
-                        echo "<p>Il y a " . $nbr_employes . " employés dans la base.</p>";
-
-                        echo "<table p-5 class=\"table table-light table-hover table-striped\">";
-                        echo "<thead><th scope=\"col\">ID</th><th scope=\"col\">Prénom</th><th scope=\"col\">Nom</th><th scope=\"col\">Sexe</th><th scope=\"col\">Service</th><th scope=\"col\">Date d'embauche</th><th scope=\"col\">Salaire</th><th scope=\"col\">Fiche</th></tr></thead>";
-                        while ($ligne = $requete->fetch(PDO::FETCH_ASSOC)) {
-
+                    echo "<table class='table table-success table-hover table-striped'>";
+                    echo "<thead><tr><th scope='col'>ID</th><th scope='col'>Civilité</th><th scope='col'>Prénom</th><th scope='col'>Nom</th><th scope='col'>Sexe</th><th scope='col'>Service</th><th scope='col'>Date d'embauche</th><th scope='col'>Salaire</th><th scope='col'>Fiche</th></tr></thead>";
+    
+                    while($ligne = $requete->fetch(PDO::FETCH_ASSOC)){
                             echo "<tr>";
                             echo "<td>#" . $ligne['id_employes'] . "</td>";
                             echo "<td>";
-                            if ($ligne['sexe'] == 'f') {
-                                echo "Mme ";
-                            } else {
-                                echo "M. ";
-                            }
-                            echo $ligne['prenom'] . "</td>";
+                            if($ligne['sexe'] == 'f'){echo "Mme";}else{echo "M.";} "</td>";
+                            echo "<td>" . $ligne['prenom'] . "</td>";
                             echo "<td>" . $ligne['nom'] . "</td>";
                             echo "<td>" . $ligne['sexe'] . "</td>";
                             echo "<td>" . $ligne['service'] . "</td>";
                             echo "<td>" . date('d/m/Y', strtotime($ligne['date_embauche'])) . "</td>";
-                            echo "<td>" . number_format($ligne['salaire']) . " €</td>";
-                            echo "<td><a href=\"03-fiche-employes.php?id_employes=" . $ligne['id_employes'] . "\" class=\"text-white\">Voir sa fiche</a></td>";
-
+                            echo "<td>" . number_format($ligne['salaire'], 0, ',', ' ') . "€</td>";
+                            echo "<td><a href='03-fiche-employes.php?id_employes=".$ligne['id_employes']." class='text-white' target='_blank'>Voir sa fiche</a></td>"; 
                             echo "</tr>";
-                        }
+                    }
+    
+                    echo "</table>";
+                ?>
 
-                        echo "</table>";
-                        ?>
+            </div>
+            
+        </div> <!-- Fin de la rangée -->
+        
 
+        <br><br>
 
-                    </div><!-- fin de la colonne -->
+    </main>
+</div>
 
-                </div><!-- fin de la rangée -->
-
-
-                <br><br>
-
-            </main>
-        </div> <!-- FIN DE LA PARTIE PRINCIPALE COL-8 -->
-
-
+        <div class="col-sm-2 aside">
+            <ul>
+                <!-- DES ANCRES POUR LE COURS ET LES EXOS -->
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li></li>
+            </ul>
+        </div>
     </div>
 
     <!-- LE FOOTER EN REQUIRE -->
     <?php
-    require("../inc/footer.inc.php")
+        require("../inc/footer.inc.php")
     ?>
 
     <!-- Optional JavaScript -->
@@ -140,5 +136,4 @@ if (!empty($_POST)) {
     <script src="../inc/sidenav.js"></script>
 
 </body>
-
 </html>

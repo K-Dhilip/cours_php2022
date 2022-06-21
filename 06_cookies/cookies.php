@@ -1,32 +1,30 @@
-<?php
-require_once('../inc/functions.php');
+<?php 
+    require_once('../inc/functions.php');
 
-// Si une langue est passée dans l'URL (l'internaute a cliqué sur un lien), on enverra cette langue dans le cookie
-if(isset($_GET['langue'])){
-    $langue =($_GET['langue']);
-    jeprint_r($langue);
-    // jevar_dump($langue);
-}else if(isset($_COOKIE['langue'])){ //sinon si on a reçu un cookie appelé langue on a la valeur su site qui prendra la valeur de la langue
-    $langue =($_COOKIE['langue']);
-    jeprint_r($langue);
-} else { //sinon par défaut
-    $langue = 'fr';
-    jeprint_r($langue);
-}
+    // Si une langue est passée dans l'URL (l'internaute a cliqué sur un lien), on enverra cette langue dans le cookie
+    if(isset($_GET['langue'])){
+        $langue =($_GET['langue']);
+        // jevar_dump($langue);
+    }elseif(isset($_COOKIE['langue'])){ // sinon on a reçu un cookie appelé langue on a la valeur du site qui prendra la valeur de la langue
+        $langue =($_COOKIE['langue']);
+        // jevar_dump($langue);
+    }else{ // on saisit une langue par défaut
+        $langue ='fr';
+        // jeprint_r($langue);
+    }
 
-// Envoie du cookie avec l'info sur la langue à l'intérieur
+    // Envoi du cookie avec l'info sur la langue à l'intérieur
 
-$expiration = time() + 365*24*60*60; //va nous donner la date actuelle exprimée en secondes
-// time nous donne la date du jour depuis le début de UNIX (1970), date exprimée en secondes
-jeprint_r($expiration); //j'ajoute à la date du jour les données d'une année en secondes
-setcookie('langue', $langue, $expiration); // fonction qui fabrique le cookie , ce cookie est appelé langue avec la valeur de $langue et la valeur de $expiration
+    $expiration = time() + 365*24*60*60; // va nous donner la date actuelle exprimée en secondes
+    // time() nous donne la date du jour depuis le début d'UNIX (1970) date exprimée en secondes
+    jeprint_r($expiration); // j'ajoute à la date du jour les données d'une année en secondes
+    setcookie('langue', $langue, $expiration); // fonction qui fabrique le cookie, ce cookie est appelé langue avec la valeur de $langue et la valeur de $expiration
 
-// Il n'existe pas de fonction prédéfinie qui permette de supprimer un cookie. Pour rendre un cookie invalide , on utilise setcookie() avec le nom concerné et en mettant une date d'expiration à 0 ou antérieur à la date actuelle
+    // il n'existe pas de fonction prédéfinie qui permette de supprimer un cookie. Pour rendre un cookie invalide on utilise setcookie() avec le nom concernéet en mettant une date d'expiration à 0 ou antérieur à la date actuelle
 
-?>
+?> 
 <!doctype html>
 <html lang="fr">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -44,14 +42,11 @@ setcookie('langue', $langue, $expiration); // fonction qui fabrique le cookie , 
     <!-- mes styles -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body class="bg-light">
     <!-- JUMBOTRON -->
     <div class="jumbotron bg-dark text-white text-center">
-        <h1 class="display-3">Cours PHP7 -Cookies</h1>
-        <p class="lead">La superglobale $_COOKIE : un cookie est un petit fichier de 4ko maxi déposé par le serveur web sur le poste de l'internaute et qui contient des informations</p>
-
-
+        <h1 class="display-3">Cours PHP7 - Cookies</h1>
+        <p class="lead">La superglobale $_COOKIE: un cookie est un petit fichier de 4ko maximum déposé par le serveur web sur le poste de l'internauteet qui contient des informations.</p>
     </div>
 
     <!-- RANGÉE PRINCIPALE -->
@@ -59,49 +54,57 @@ setcookie('langue', $langue, $expiration); // fonction qui fabrique le cookie , 
         <!-- LA NAVIGATION EN INCLUDE (penser à ajouter le JS qui va avec en fin de page) -->
         <?php
         require('../inc/sidenav.inc.php')
-
         ?>
 
         <!-- ============================================================== -->
         <!-- Contenu principal -->
         <!-- ============================================================== -->
+
         <div class="col-sm-8">
             <main class="container-fluid">
-
                 <div class="row">
                     <hr>
                     <h2 class="col-sm-12 text-center" id="definition">1. Introduction</h2>
                     <div class="col-sm-12">
-                        <p>Les cookies sont automatiquement renvoyés au serveur web par le navigateur. Lorsque l'internaute navigue dans les pages concernées par le ou les cookies, PHP permet de récupérer très facilement les données contenues dans un cookie. Non seulement on peut le fabriquer mais on peut aussi le récupérer. Les informations sont stockées dans une superglobale : $_COOKIE . </p>
-                        <p class="alert alert-danger w-50 mx-auto">Un cookie étant sauvegardé sur le poste de l'internaute, il peut être modifié, détourné ou volé!!!! On n'y met aucune information sensible, comme les références bancaires, le numéro de sécu , le mot de passe, ni même le contenu d'un  panier d'achat.</p>
-                        <div class="w-75 text-center mx-auto">
-                        <!-- On envoie la langue choisie par l'URL : la valeur "fr" par exemple est récupérée dans la superglobale $_GET-->
+                        <p>Les cookies sont automatiquement renvoyés au serveur web par le navigateur. Lorsque l'internaute navigue dans les pages concernées par le ou les cookies  PHP permet de récupérer très facilement les données contenues dans un cookie. Non seulement on peut le fabriquer mais on peut aussi le récupérer. Les informations sont stockées dans une superglobale $_COOKIE.</p>
+                        <p class="alert alert-danger w-50 mx-auto">Un cookie étant sauvegardé sur le poste de l'internaute il peut être modifié, détourné ou volé! On n'y met aucune information sensible, comme les références bancaires, numéro de sécurité sociale, mot de passe, ni même le contenu d'un panier d'achat./p>
+                            <div class="w-75 text-center mx-auto">
+                                <!-- On envoie la langue choisie par l'URL: la valeur "Fr" par exemple est récupérée dans la superglobale $_GET -->
+                                <a href="?langue=fr" class="btn btn-success">Français</a> - 
+                                <a href="?langue=es" class="btn btn-success">Espagnol</a> - 
+                                <a href="?langue=it" class="btn btn-success">Italien</a> - 
+                                <a href="?langue=ru" class="btn btn-success">Russe</a>
 
-                        <a href="?langue=fr" class="btn btn-primary">Français</a> -
-                        <a href="?langue=es" class="btn btn-success">Espagnol</a> -
-                        <a href="?langue=it" class="btn btn-danger">Italien</a> -
-                        <a href="?langue=ru" class="btn btn-warning">Russe</a> 
-                        
-                        <?php
-                            echo "<hr><br><h3>Langue du site : $langue</h3>";
-                            echo time() .": la date du jour exprimée en secondes depuis le 1er janvier 1970.";
-                        ?>
-                        
-                        </div>
-                    </div><!-- fin de la col-->
-
-                </div><!-- fin de la rangée (row)-->
+                            <br><br>
+                                <?php 
+                                echo "<h3>Langue du site :  $langue</h3>";
+                                echo time() . " : la date du jour exprimée en secondes depuis le 1er janvier 1970."
+                            ?> 
+                            </div>
+                            
+                    </div> <!-- Fin de la colonne -->
+                </div> <!-- fin de la rangée -->
+                
                 <hr>
                 <br><br>
 
             </main>
-        </div> <!-- FIN DE LA PARTIE PRINCIPALE COL-8 -->
+        </div>
 
+        <div class="col-sm-2 aside">
+            <ul>
+                <!-- DES ANCRES POUR LE COURS ET LES EXOS -->
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li></li>
+            </ul>
+        </div>
     </div>
 
     <!-- LE FOOTER EN REQUIRE -->
     <?php
-    require("../inc/footer.inc.php")
+        require("../inc/footer.inc.php")
     ?>
 
     <!-- Optional JavaScript -->
@@ -113,5 +116,4 @@ setcookie('langue', $langue, $expiration); // fonction qui fabrique le cookie , 
     <script src="../inc/sidenav.js"></script>
 
 </body>
-
 </html>
