@@ -23,3 +23,5 @@ function executeRequete($requete, $parametres = array()){
         } // fin if else 
     }
 } // fermeture de la fonction executeRequete
+
+?>
